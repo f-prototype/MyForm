@@ -1,26 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
+import { Homepage } from './pages/homepage/Homepage';
+import { Provider } from 'react-redux';
+import store from './slices';
+import { Step1 } from './pages/step1/Step1';
+import MainLayout from './layouts/mainLayout/MainLayout';
+import { StepLayout } from './layouts/stepLayout/StepLayout';
+import { Step2 } from './pages/step2/Step2';
+import { Step3 } from './pages/step3/Step3';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Provider store={store}>
+        <div className="App">
+          <Routes>
+            <Route path="/" element={<MainLayout />}>
+              <Route index element={<Homepage />} />
+              <Route element={<StepLayout />}>
+                <Route path="Step" element={<Step1 />} />
+                <Route path="Step2" element={<Step2 />} />
+                <Route path="Step3" element={<Step3 />} />
+              </Route>
+            </Route>
+          </Routes>
+        </div>
+      </Provider>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
