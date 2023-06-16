@@ -1,0 +1,32 @@
+.container {
+  width: 340px;
+  input {
+    width: 300px;
+  }
+}
+
+.row {
+  display: flex;
+  align-items: flex-end;
+}
+
+.img {
+  margin-left: 18px;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.btnAdd {
+  list-style: none;
+  background-color: transparent;
+  width: 44px;
+  height: 44px;
+  color: #5558fa;
+  border: 1.5px solid #5558fa;
+  border-radius: 4px;
+  padding: 12px;
+  font-weight: 700;
+  font-size: 20px;
+  margin-top: 8px;
+  cursor: pointer;
+}

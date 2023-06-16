@@ -1,0 +1,12 @@
+.container {
+  display: block;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  margin-top: 48px;
+  .input {
+    background-color: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    border-radius: 4px;
+  }
+}
