@@ -18,17 +18,26 @@
   font-weight: 400;
   border-radius: 4px;
   cursor: pointer;
+  border: 1px solid #5558fa;
+  transition: all 0.3s ease-in-out;
 }
 
 .back {
-  border: 1px solid #5558fa;
   color: #5558fa;
   background-color: transparent;
+  &:hover {
+    background-color: #5558fa;
+    color: #fff;
+  }
 }
 
 .next {
   background-color: #5558fa;
   color: #fff;
+  &:hover {
+    background-color: transparent;
+    color: #5558fa;
+  }
 }
 
 @media (max-width: 500px) {
