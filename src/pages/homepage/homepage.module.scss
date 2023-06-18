@@ -39,3 +39,19 @@
   display: flex;
   justify-content: space-between;
 }
+
+@media (max-width: 450px) {
+  .container label {
+    width: 100%;
+  }
+}
+@media (max-width: 400px) {
+  .logo {
+    width: 60px;
+    height: 60px;
+    margin-right: 12px;
+  }
+  .userInfo {
+    width: 220px;
+  }
+}

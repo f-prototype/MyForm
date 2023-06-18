@@ -4,14 +4,7 @@ import { MyInput } from '../UI/input/MyInput';
 import { useForm } from 'react-hook-form';
 import { IFormInput } from '../../interfacesTypes/IFormInput';
 import { MdDelete } from 'react-icons/md';
-import { IState } from '../../interfacesTypes/IState';
-
-type State = React.Dispatch<React.SetStateAction<IState>>;
-
-interface IAdvantagesProps {
-  data: string[];
-  setData: State;
-}
+import { IAdvantagesProps } from '../../interfacesTypes/IAdvantagesProps';
 
 export const AdvantagesContainer: React.FC<IAdvantagesProps> = ({
   data,
@@ -44,6 +37,7 @@ export const AdvantagesContainer: React.FC<IAdvantagesProps> = ({
                   return { ...prev, advantages: res };
                 })
               }
+              id={`field-advantages-${index + 1}`}
             >
               <MdDelete
                 className={styles.img}
@@ -54,6 +48,7 @@ export const AdvantagesContainer: React.FC<IAdvantagesProps> = ({
                     return { ...prev, advantages: res };
                   });
                 }}
+                id={`button-remove-${index + 1}`}
               />
             </MyInput>
           </div>
@@ -62,13 +57,12 @@ export const AdvantagesContainer: React.FC<IAdvantagesProps> = ({
       <button
         className={styles.btnAdd}
         onClick={() => {
-          if (data.length > 1) {
-            setData((prev) => {
-              const res = [...data, ''];
-              return { ...prev, advantages: res };
-            });
-          }
+          setData((prev) => {
+            const res = [...data, ''];
+            return { ...prev, advantages: res };
+          });
         }}
+        id="button-add"
       >
         +
       </button>

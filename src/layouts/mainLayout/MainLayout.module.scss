@@ -33,3 +33,17 @@
     font-weight: 400;
   }
 }
+
+@media (max-width: 905px) {
+  .formContainer {
+    width: 600px;
+  }
+}
+@media (max-width: 605px) {
+  .formContainer {
+    width: 100%;
+    min-height: 100px;
+    margin: 0 5px;
+    height: min-content;
+  }
+}

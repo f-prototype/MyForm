@@ -30,3 +30,18 @@
   margin-top: 8px;
   cursor: pointer;
 }
+
+@media (max-width: 400px) {
+  .row {
+    width: 100%;
+    label {
+      width: 100%;
+    }
+  }
+  .container {
+    width: 100%;
+    input {
+      width: calc(100% - 32px);
+    }
+  }
+}

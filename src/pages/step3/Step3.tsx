@@ -6,11 +6,7 @@ import { RootState } from '../../slices';
 import { ErrMessage } from '../../components/errMessage/ErrMessage';
 import { setState } from '../../slices/homeSlice';
 import { ModalInner } from '../../components/modalInner/ModalInner';
-
-interface IResponseForm {
-  message: string;
-  status: string;
-}
+import { IResponseForm } from '../../interfacesTypes/IResponseForm';
 
 export const Step3 = () => {
   const navigate = useNavigate();
@@ -56,16 +52,21 @@ export const Step3 = () => {
             placeholder="It was a dark and stormy night..."
             value={data}
             onChange={onChange}
+            id="field-about"
           />
         </label>
         <span className={styles.counter}>{count}/200</span>
         {data === '' && <ErrMessage />}
       </div>
       <div className={styles.btnContainer}>
-        <button className={styles.back} onClick={() => navigate('/Step2')}>
+        <button
+          className={styles.back}
+          onClick={() => navigate('/Step2')}
+          id="button-back"
+        >
           Назад
         </button>
-        <button className={styles.next} onClick={onSubm}>
+        <button className={styles.next} onClick={onSubm} id="button-send">
           Отправить
         </button>
       </div>

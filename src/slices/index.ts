@@ -18,7 +18,7 @@ const rootReducer = combineReducers({
 });
 
 const persistConfig = {
-  key: 'form2sljslfjsdcnsjncsjncddnsd,.vds.;c,ss;z.x.x',
+  key: 'form2sljslfjsdcnsjncsjncddnsd,.vds.;c,ss;z.x.xslsldslssls,s,sks,s,',
   storage,
 };
 

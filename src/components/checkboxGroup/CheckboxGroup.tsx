@@ -1,13 +1,7 @@
 import React from 'react';
+import { ICheckboxGroupProps } from '../../interfacesTypes/ICheckboxGroupProps';
 import styles from './CheckboxGroup.module.scss';
-import { IState } from '../../interfacesTypes/IState';
-
-type State = React.Dispatch<React.SetStateAction<IState>>;
-
-interface ICheckboxGroupProps {
-  data: number[];
-  setData: State;
-}
+import { ErrMessage } from '../errMessage/ErrMessage';
 
 export const CheckboxGroup: React.FC<ICheckboxGroupProps> = ({
   data,
@@ -31,35 +25,41 @@ export const CheckboxGroup: React.FC<ICheckboxGroupProps> = ({
   };
 
   return (
-    <div className={styles.checkboxGroup}>
-      <p>CheckboxGroup</p>
-      <label>
-        <input
-          type="checkbox"
-          onChange={onChange}
-          value={1}
-          checked={data.includes(1) ? true : false}
-        />
-        1
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          onChange={onChange}
-          value={2}
-          checked={data.includes(2) ? true : false}
-        />
-        2
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          onChange={onChange}
-          value={3}
-          checked={data.includes(3) ? true : false}
-        />
-        3
-      </label>
-    </div>
+    <>
+      <div className={styles.checkboxGroup}>
+        <p>CheckboxGroup</p>
+        <label>
+          <input
+            type="checkbox"
+            onChange={onChange}
+            value={1}
+            checked={data.includes(1) ? true : false}
+            id="field-checkbox-group-option-1"
+          />
+          1
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            onChange={onChange}
+            value={2}
+            checked={data.includes(2) ? true : false}
+            id="field-checkbox-group-option-2"
+          />
+          2
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            onChange={onChange}
+            value={3}
+            checked={data.includes(3) ? true : false}
+            id="field-checkbox-group-option-3"
+          />
+          3
+        </label>
+      </div>
+      {data.length === 0 && <ErrMessage />}
+    </>
   );
 };

@@ -2,34 +2,33 @@ import React from 'react';
 import { BsCheckCircleFill, BsFillXCircleFill } from 'react-icons/bs';
 import styles from './ModalInner.module.scss';
 import { Link } from 'react-router-dom';
+import { ModalInnerProps } from '../../interfacesTypes/ModalInnerProps';
 
-interface ModalInnerProps {
-  status: string;
-  className: string;
-}
 export const ModalInner: React.FC<ModalInnerProps> = ({
   status,
   className,
 }) => {
-  return (
-    <div className={styles.modalInner}>
-      <h3>{status === 'success' ? 'Форма успешно отправлена' : 'Ошибка'}</h3>
-      <div
-        className={
-          status === 'success' ? styles.imgContainer : styles.imgContainerErr
-        }
-      >
-        {status === 'success' ? (
+  if (status === 'success') {
+    return (
+      <div className={styles.modalInner}>
+        <h3>Форма успешно отправлена</h3>
+        <div className={styles.imgContainer}>
           <BsCheckCircleFill className={styles.img} />
-        ) : (
-          <BsFillXCircleFill className={styles.imgErr} />
-        )}
-      </div>
-      {status === 'success' ? (
-        <Link to="/" className={styles.btn}>
+        </div>
+
+        <Link to="/" className={styles.btn} id="button-to-main">
           На главную
         </Link>
-      ) : (
+      </div>
+    );
+  } else {
+    return (
+      <div className={styles.modalInner}>
+        <h3>Ошибка</h3>
+        <div className={styles.imgContainerErr}>
+          <BsFillXCircleFill className={styles.imgErr} />
+        </div>
+
         <button
           className={styles.btn}
           onClick={(e) => {
@@ -39,10 +38,11 @@ export const ModalInner: React.FC<ModalInnerProps> = ({
               );
             }
           }}
+          id="button-close"
         >
           Закрыть
         </button>
-      )}
-    </div>
-  );
+      </div>
+    );
+  }
 };

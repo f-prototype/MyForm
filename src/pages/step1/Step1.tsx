@@ -8,14 +8,14 @@ import { setState, setStep } from '../../slices/homeSlice';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { IFormInput } from '../../interfacesTypes/IFormInput';
-
-const test = /^[а-яА-ЯёЁa-zA-Z0-9]+$/;
-const options = [
-  { title: 'Мужской', value: 'man' },
-  { title: 'Женский', value: 'woman' },
-];
+import { OptionType } from '../../interfacesTypes/Option';
 
 export const Step1 = () => {
+  const pattern = /^[а-яА-ЯёЁa-zA-Z0-9]+$/;
+  const options: OptionType[] = [
+    { title: 'Мужской', value: 'man' },
+    { title: 'Женский', value: 'woman' },
+  ];
   const {
     register,
     formState: { errors },
@@ -31,20 +31,20 @@ export const Step1 = () => {
     sername: store.sername,
     sex: store.sex,
   });
-  const getSelected = (value?: string) => {
+  const getSelected = (value?: string): OptionType | undefined => {
     if (value) {
       return options.find((item) => item.value === value);
     }
     return undefined;
   };
   let selectedOption = getSelected(data.sex);
-  const handleSelect = (value: string) => {
+  const handleSelect = (value: string): void => {
     setData((prev) => {
       return { ...prev, sex: value };
     });
     selectedOption = getSelected(value);
   };
-  const onHandleClick = () => {
+  const onHandleClick = (): void => {
     if (!errors.nickname && !errors.name && !errors.sername && data.sex) {
       dispatch(setState({ name: 'nickname', value: data.nickname }));
       dispatch(setState({ name: 'name', value: data.name }));
@@ -69,12 +69,13 @@ export const Step1 = () => {
         <MyInput
           name={'nickname'}
           required={true}
-          pattern={test}
+          pattern={pattern}
           text="Никнейм"
           value={data.nickname}
           onChange={setInput}
           reg={register}
           errors={errors}
+          id="field-nickname"
         />
         <MyInput
           name={'name'}
@@ -86,6 +87,7 @@ export const Step1 = () => {
           onChange={setInput}
           reg={register}
           errors={errors}
+          id="field-name"
         />
         <MyInput
           name={'sername'}
@@ -97,6 +99,7 @@ export const Step1 = () => {
           onChange={setInput}
           reg={register}
           errors={errors}
+          id="field-sername"
         />
         <MySelect
           mode="rows"
@@ -107,10 +110,18 @@ export const Step1 = () => {
         />
       </div>
       <div className={styles.btnContainer}>
-        <button className={styles.back} onClick={() => navigate('/')}>
+        <button
+          className={styles.back}
+          onClick={() => navigate('/')}
+          id="button-back"
+        >
           Назад
         </button>
-        <button className={styles.next} onClick={onHandleClick}>
+        <button
+          className={styles.next}
+          onClick={onHandleClick}
+          id="button-next"
+        >
           Далее
         </button>
       </div>

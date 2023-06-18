@@ -54,3 +54,9 @@
   outline: 0;
   cursor: pointer;
 }
+
+@media (max-width: 500px) {
+  .modalInner {
+    width: 300px;
+  }
+}

@@ -17,7 +17,7 @@
 
 .container {
   width: 100%;
-  padding: 60px 100px 80px 100px;
+  padding: 60px 100px 20px 100px;
 }
 
 .progressBar {
@@ -106,5 +106,18 @@
   }
   :nth-child(3) {
     color: #5558fa;
+  }
+}
+
+@media (max-width: 605px) {
+  .container {
+    padding: 60px 30px 20px 30px;
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    padding: 0px;
+    padding-top: 30px;
   }
 }

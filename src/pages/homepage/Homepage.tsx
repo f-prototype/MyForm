@@ -11,9 +11,12 @@ export const Homepage: React.FC = () => {
         <div className={styles.userInfo}>
           <div className={styles.name}>Алексей Сазонов</div>
           <div className={styles.links}>
-            <Link href="/" text="Telegram" />
-            <Link href="/" text="Github" />
-            <Link href="/" text="Resume" />
+            <Link href="https://t.me/@prototype_4" text="Telegram" />
+            <Link href="https://github.com/f-prototype" text="Github" />
+            <Link
+              href="https://disk.yandex.ru/i/TVux8kwrAOhc6g"
+              text="Resume"
+            />
           </div>
         </div>
       </header>

@@ -58,8 +58,7 @@ export const HForm: React.FC = () => {
         <p>Email</p>
         <input
           {...register('email', {
-            pattern:
-              /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu,
+            pattern: /^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/,
             required: true,
             minLength: 1,
           })}
@@ -68,7 +67,7 @@ export const HForm: React.FC = () => {
         />
         {(errors.email || data.mail === '') && <ErrMessage />}
       </label>
-      <button className={styles.btn} onClick={onHandleClick}>
+      <button className={styles.btn} onClick={onHandleClick} id="button-start">
         Начать
       </button>
     </>

@@ -3,16 +3,7 @@ import { SlArrowDown } from 'react-icons/sl';
 import Styles from './MySelect.module.scss';
 import { Option } from './MyOption';
 import { OptionType } from '../../../interfacesTypes/Option';
-
-type SelectProps = {
-  selected: OptionType | null;
-  options: OptionType[];
-  placeholder?: string;
-  mode?: 'rows' | 'cells';
-  status?: 'default' | 'invalid';
-  onChange?: (selected: OptionType['value']) => void;
-  onClose?: () => void;
-};
+import { SelectProps } from '../../../interfacesTypes/SelectProps';
 
 export const MySelect = (props: SelectProps) => {
   const {
@@ -72,6 +63,7 @@ export const MySelect = (props: SelectProps) => {
           onClick={handlePlaceHolderClick}
           role="button"
           tabIndex={0}
+          id="field-sex"
         >
           {selected?.title || placeholder}
         </div>

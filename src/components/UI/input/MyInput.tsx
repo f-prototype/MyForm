@@ -1,33 +1,9 @@
 import React from 'react';
 import styles from './MyInput.module.scss';
 import { ErrMessage } from '../../errMessage/ErrMessage';
+import { IMyInputProps } from '../../../interfacesTypes/IMyInputProps';
 
-interface IMtInputProps {
-  name: formNameTypes;
-  pattern: RegExp;
-  required: boolean;
-  max?: number;
-  text?: string;
-  value?: string;
-  onChange?: (name: string, e: React.ChangeEvent<HTMLInputElement>) => void;
-  reg: any;
-  errors: {
-    [key: string]: any;
-  };
-  children?: any;
-}
-
-type formNameTypes =
-  | 'number'
-  | 'email'
-  | 'nickname'
-  | 'name'
-  | 'sername'
-  | 'sex'
-  | 'advantages'
-  | string;
-
-export const MyInput: React.FC<IMtInputProps> = ({
+export const MyInput: React.FC<IMyInputProps> = ({
   name,
   pattern,
   required,
@@ -38,6 +14,7 @@ export const MyInput: React.FC<IMtInputProps> = ({
   reg,
   errors,
   children,
+  id,
 }) => {
   return (
     <label className={styles.container}>
@@ -54,6 +31,7 @@ export const MyInput: React.FC<IMtInputProps> = ({
           }
           className={styles.input}
           maxLength={max}
+          id={id}
         />
         {children}
       </div>

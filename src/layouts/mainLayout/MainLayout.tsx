@@ -10,9 +10,7 @@ export const MainLayout: FC = () => {
   });
 
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    console.log(data);
-    // dispatch(setState({ name: 'email', value: data.email }));
-    // dispatch(setState({ name: 'number', value: data.phone.toString() }));
+    console.log('Шаг пройден');
   };
   return (
     <>

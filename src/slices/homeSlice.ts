@@ -33,15 +33,15 @@ interface IPayload {
 // }
 
 const initialState = {
-  phone: '',
-  email: '',
+  phone: '+7 (978) 729-61-39',
+  email: 'lehasazonoff@mail.ru',
   nickname: '',
   name: '',
   sername: '',
   sex: '',
   advantages: ['', '', ''],
   radio: null,
-  checkbox: [1],
+  checkbox: [],
   step: 0,
   about: '',
 };

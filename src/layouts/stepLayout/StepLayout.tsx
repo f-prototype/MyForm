@@ -1,8 +1,7 @@
-import React from 'react';
-import styles from './StepLayout.module.scss';
 import { Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../slices';
+import styles from './StepLayout.module.scss';
 
 export const StepLayout = () => {
   const step = useSelector((state: RootState) => state.HomeP.step);

@@ -1,11 +1,7 @@
 import React from 'react';
 import styles from './Link.module.scss';
 import { AiFillFolder } from 'react-icons/ai';
-
-type LinkProps = {
-  href: string;
-  text: string;
-};
+import { LinkProps } from '../../interfacesTypes/LinkProps';
 
 export const Link: React.FC<LinkProps> = ({ href, text }) => {
   return (

@@ -34,3 +34,13 @@
   background-color: #5558fa;
   color: #fff;
 }
+
+@media (max-width: 500px) {
+  .container {
+    width: 100%;
+    margin-top: 30px;
+  }
+  .btnContainer {
+    margin-top: 30px;
+  }
+}
