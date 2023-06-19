@@ -11,7 +11,7 @@ type formNameTypes =
 export interface IMyInputProps {
   id?: string;
   name: formNameTypes;
-  pattern: RegExp;
+  pattern?: RegExp;
   required: boolean;
   max?: number;
   text?: string;

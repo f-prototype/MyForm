@@ -36,42 +36,6 @@
   margin-top: 88px;
 }
 
-.back,
-.next {
-  list-style-type: none;
-  width: 73px;
-  height: 44px;
-  border: 0;
-  outline: 0;
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 400;
-  border-radius: 4px;
-  cursor: pointer;
-  border: 1px solid #5558fa;
-  transition: all 0.3s ease-in-out;
-}
-
-.back {
-  color: #5558fa;
-  background-color: transparent;
-  &:hover {
-    background-color: #5558fa;
-    color: #fff;
-  }
-}
-
-.next {
-  width: 103px;
-  padding: 12px 16px;
-  background-color: #5558fa;
-  color: #fff;
-  &:hover {
-    background-color: transparent;
-    color: #5558fa;
-  }
-}
-
 .errMessage {
   width: 100%;
   display: flex;
@@ -120,27 +84,6 @@
   color: #05ae71;
   width: 38px;
   height: 38px;
-}
-
-.btn {
-  display: block;
-  text-decoration: none;
-  padding: 12px 16px;
-  width: 109px;
-  height: 44px;
-  background: #5558fa;
-  color: #fff;
-  border-radius: 4px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-  border: 1px solid #5558fa;
-  transition: all 0.3s ease-in-out;
-  &:hover {
-    background-color: transparent;
-    color: #5558fa;
-  }
 }
 
 .open {

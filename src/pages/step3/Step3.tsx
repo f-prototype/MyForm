@@ -7,6 +7,7 @@ import { ErrMessage } from '../../components/errMessage/ErrMessage';
 import { setState } from '../../slices/homeSlice';
 import { ModalInner } from '../../components/modalInner/ModalInner';
 import { IResponseForm } from '../../interfacesTypes/IResponseForm';
+import { MyButton } from '../../components/UI/button/MyButton';
 
 export const Step3 = () => {
   const navigate = useNavigate();
@@ -24,6 +25,7 @@ export const Step3 = () => {
     setCount(newStr.length);
   };
   const onSubm = async () => {
+    if (data.length === 0) return;
     dispatch(setState({ name: 'about', value: data }));
     const result = JSON.parse(JSON.stringify(store));
     delete result.step;
@@ -40,6 +42,10 @@ export const Step3 = () => {
     const res: IResponseForm = await response.json();
     setStatus(res.status);
     ref.current?.classList.add(styles.open);
+  };
+  const back = (): void => {
+    dispatch(setState({ name: 'about', value: data }));
+    navigate('/Step2');
   };
   return (
     <>
@@ -59,16 +65,13 @@ export const Step3 = () => {
         {data === '' && <ErrMessage />}
       </div>
       <div className={styles.btnContainer}>
-        <button
-          className={styles.back}
-          onClick={() => navigate('/Step2')}
-          id="button-back"
-        >
-          Назад
-        </button>
-        <button className={styles.next} onClick={onSubm} id="button-send">
-          Отправить
-        </button>
+        <MyButton id="button-back" func={back} className="back" text="Назад" />
+        <MyButton
+          id="button-send"
+          func={onSubm}
+          className="next"
+          text="Отправить"
+        />
       </div>
       <div
         className={styles.modal}

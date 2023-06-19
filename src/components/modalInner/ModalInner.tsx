@@ -3,6 +3,7 @@ import { BsCheckCircleFill, BsFillXCircleFill } from 'react-icons/bs';
 import styles from './ModalInner.module.scss';
 import { Link } from 'react-router-dom';
 import { ModalInnerProps } from '../../interfacesTypes/ModalInnerProps';
+import { MyButton } from '../UI/button/MyButton';
 
 export const ModalInner: React.FC<ModalInnerProps> = ({
   status,
@@ -29,19 +30,18 @@ export const ModalInner: React.FC<ModalInnerProps> = ({
           <BsFillXCircleFill className={styles.imgErr} />
         </div>
 
-        <button
-          className={styles.btn}
-          onClick={(e) => {
+        <MyButton
+          id="button-close"
+          className="next"
+          text="Закрыть"
+          func={(e) => {
             if (e.target instanceof Element) {
               e.target.parentElement?.parentElement?.classList.remove(
                 className
               );
             }
           }}
-          id="button-close"
-        >
-          Закрыть
-        </button>
+        />
       </div>
     );
   }

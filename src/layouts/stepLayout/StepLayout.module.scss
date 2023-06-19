@@ -1,5 +1,7 @@
+$blue: #5558fa;
+
 @mixin inProcess {
-  background-color: #5558fa;
+  background-color: $blue;
   &:after {
     content: '•';
     color: azure;
@@ -7,7 +9,7 @@
 }
 
 @mixin over {
-  background-color: #5558fa;
+  background-color: $blue;
   &:after {
     content: '✔';
     color: azure;
@@ -55,7 +57,7 @@
   }
 }
 .step2 {
-  background: linear-gradient(to right, #5558fa 50%, #00000014 50%);
+  background: linear-gradient(to right, $blue 50%, #00000014 50%);
   :nth-child(1) {
     @include over();
   }
@@ -64,7 +66,7 @@
   }
 }
 .step3 {
-  background: #5558fa;
+  background: $blue;
   :nth-child(1) {
     @include over();
   }
@@ -86,26 +88,26 @@
 
 .stepS1 {
   :nth-child(1) {
-    color: #5558fa;
+    color: $blue;
   }
 }
 .stepS2 {
   :nth-child(1) {
-    color: #5558fa;
+    color: $blue;
   }
   :nth-child(2) {
-    color: #5558fa;
+    color: $blue;
   }
 }
 .stepS3 {
   :nth-child(1) {
-    color: #5558fa;
+    color: $blue;
   }
   :nth-child(2) {
-    color: #5558fa;
+    color: $blue;
   }
   :nth-child(3) {
-    color: #5558fa;
+    color: $blue;
   }
 }
 

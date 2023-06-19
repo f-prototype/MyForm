@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import styles from './Step2.module.scss';
 import { AdvantagesContainer } from '../../components/advantages/AdvantagesContainer';
 import { useNavigate } from 'react-router-dom';
 import { CheckboxGroup } from '../../components/checkboxGroup/CheckboxGroup';
@@ -8,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../slices';
 import { IState } from '../../interfacesTypes/IState';
 import { setRadio, setState, setStep } from '../../slices/homeSlice';
+import { MyButtons } from '../../components/buttons/MyButtons';
 
 export const Step2 = () => {
   const navigate = useNavigate();
@@ -36,23 +36,19 @@ export const Step2 = () => {
       navigate('/Step3');
     }
   };
+  const back = (): void => {
+    dispatch(setState({ name: 'advantages', value: [...data.advantages] }));
+    dispatch(setState({ name: 'checkbox', value: data.checkbox }));
+    dispatch(setRadio(data.radio));
+    dispatch(setStep(1));
+    navigate('/Step');
+  };
   return (
     <>
       <AdvantagesContainer data={data.advantages} setData={setData} />
       <CheckboxGroup data={data.checkbox} setData={setData} />
       <RadioGroup data={data.radio} setData={setData} />
-      <div className={styles.btnContainer}>
-        <button
-          className={styles.back}
-          onClick={() => navigate('/Step')}
-          id="button-back"
-        >
-          Назад
-        </button>
-        <button className={styles.next} onClick={validation} id="button-next">
-          Далее
-        </button>
-      </div>
+      <MyButtons backF={back} nextF={validation} />
     </>
   );
 };

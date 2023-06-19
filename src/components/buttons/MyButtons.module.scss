@@ -1,0 +1,49 @@
+$blue: #5558fa;
+
+.btnContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 40px;
+  margin-top: 88px;
+}
+
+.back,
+.next {
+  list-style-type: none;
+  width: 73px;
+  height: 44px;
+  border: 0;
+  outline: 0;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid $blue;
+  transition: all 0.3s ease-in-out;
+}
+
+.back {
+  color: $blue;
+  background-color: transparent;
+  &:hover {
+    background-color: $blue;
+    color: #fff;
+  }
+}
+
+.next {
+  background-color: $blue;
+  color: #fff;
+  &:hover {
+    background-color: transparent;
+    color: $blue;
+  }
+}
+
+@media (max-width: 500px) {
+  .btnContainer {
+    margin-top: 30px;
+  }
+}

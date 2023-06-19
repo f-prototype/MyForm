@@ -8,6 +8,7 @@ import type { RootState } from '../../slices';
 import { useNavigate } from 'react-router-dom';
 import { IFormInput } from '../../interfacesTypes/IFormInput';
 import { ErrMessage } from '../errMessage/ErrMessage';
+import { MyButton } from '../UI/button/MyButton';
 
 export const HForm: React.FC = () => {
   const store = useSelector((store: RootState) => store.HomeP);
@@ -15,6 +16,7 @@ export const HForm: React.FC = () => {
   const navigate = useNavigate();
   const {
     register,
+    trigger,
     formState: { errors },
   } = useForm<IFormInput>({
     mode: 'all',
@@ -32,7 +34,8 @@ export const HForm: React.FC = () => {
       }
     });
   };
-  const onHandleClick = (): void => {
+  const onHandleClick = async () => {
+    await trigger(['phone', 'email']);
     if (!errors.email && !errors.phone && data.num) {
       dispatch(setState({ name: 'email', value: data.mail }));
       dispatch(setState({ name: 'phone', value: data.num.toString() }));
@@ -67,9 +70,14 @@ export const HForm: React.FC = () => {
         />
         {(errors.email || data.mail === '') && <ErrMessage />}
       </label>
-      <button className={styles.btn} onClick={onHandleClick} id="button-start">
-        Начать
-      </button>
+      <div className={styles.btnContainer}>
+        <MyButton
+          className="next"
+          func={onHandleClick}
+          id="button-start"
+          text="Начать"
+        />
+      </div>
     </>
   );
 };

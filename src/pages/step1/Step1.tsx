@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { IFormInput } from '../../interfacesTypes/IFormInput';
 import { OptionType } from '../../interfacesTypes/Option';
+import { MyButtons } from '../../components/buttons/MyButtons';
 
 export const Step1 = () => {
   const pattern = /^[а-яА-ЯёЁa-zA-Z0-9]+$/;
@@ -18,9 +19,10 @@ export const Step1 = () => {
   ];
   const {
     register,
+    trigger,
     formState: { errors },
   } = useForm<IFormInput>({
-    mode: 'onBlur',
+    mode: 'all',
   });
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -44,8 +46,9 @@ export const Step1 = () => {
     });
     selectedOption = getSelected(value);
   };
-  const onHandleClick = (): void => {
-    if (!errors.nickname && !errors.name && !errors.sername && data.sex) {
+  const onHandleClick = async () => {
+    const result = await trigger(['nickname', 'sername', 'name']);
+    if (result && data.sex) {
       dispatch(setState({ name: 'nickname', value: data.nickname }));
       dispatch(setState({ name: 'name', value: data.name }));
       dispatch(setState({ name: 'sername', value: data.sername }));
@@ -53,6 +56,14 @@ export const Step1 = () => {
       dispatch(setStep(2));
       navigate('/Step2');
     }
+  };
+  const back = (): void => {
+    dispatch(setState({ name: 'nickname', value: data.nickname }));
+    dispatch(setState({ name: 'name', value: data.name }));
+    dispatch(setState({ name: 'sername', value: data.sername }));
+    dispatch(setState({ name: 'sex', value: data.sex }));
+    dispatch(setStep(0));
+    navigate('/');
   };
   const setInput = (
     name: string,
@@ -109,22 +120,7 @@ export const Step1 = () => {
           onChange={handleSelect}
         />
       </div>
-      <div className={styles.btnContainer}>
-        <button
-          className={styles.back}
-          onClick={() => navigate('/')}
-          id="button-back"
-        >
-          Назад
-        </button>
-        <button
-          className={styles.next}
-          onClick={onHandleClick}
-          id="button-next"
-        >
-          Далее
-        </button>
-      </div>
+      <MyButtons backF={back} nextF={onHandleClick} />
     </>
   );
 };

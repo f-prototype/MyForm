@@ -26,7 +26,6 @@ export const AdvantagesContainer: React.FC<IAdvantagesProps> = ({
               reg={register}
               required={true}
               name={'advantages' + index}
-              pattern={/^[а-яА-ЯёЁa-zA-Z0-9-_.]+$/}
               errors={errors}
               text={index === 0 ? 'Навыки' : undefined}
               value={item}

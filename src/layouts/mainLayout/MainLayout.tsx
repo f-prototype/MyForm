@@ -9,13 +9,17 @@ export const MainLayout: FC = () => {
     mode: 'onBlur',
   });
 
-  const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    console.log('Шаг пройден');
-  };
+  const onSubmit: SubmitHandler<IFormInput> = (data) => {};
   return (
     <>
       <main className={styles.formContainer}>
-        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+        <form
+          className={styles.form}
+          onSubmit={(event) => {
+            event.preventDefault();
+            handleSubmit(onSubmit);
+          }}
+        >
           <Outlet />
         </form>
       </main>

@@ -2,54 +2,10 @@
   margin-top: 67px;
   width: 300px;
 }
-.btnContainer {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  height: 40px;
-  margin-top: 88px;
-}
-
-.back,
-.next {
-  list-style-type: none;
-  width: 73px;
-  height: 44px;
-  border: 0;
-  outline: 0;
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 400;
-  border-radius: 4px;
-  cursor: pointer;
-  border: 1px solid #5558fa;
-  transition: all 0.3s ease-in-out;
-}
-
-.back {
-  color: #5558fa;
-  background-color: transparent;
-  &:hover {
-    background-color: #5558fa;
-    color: #fff;
-  }
-}
-
-.next {
-  background-color: #5558fa;
-  color: #fff;
-  &:hover {
-    background-color: transparent;
-    color: #5558fa;
-  }
-}
 
 @media (max-width: 500px) {
   .container {
     width: 100%;
-    margin-top: 30px;
-  }
-  .btnContainer {
     margin-top: 30px;
   }
 }
